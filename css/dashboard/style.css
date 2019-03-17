@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'bbc nasim';
+    src: url('../../fonts/bbc nasim.eot');
+    src: url('../../fonts/bbc nasim.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/bbc nasim.woff') format('woff'),
+         url('../../fonts/bbc nasim.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+@font-face {
+    font-family: 'mj dinar';
+    src: url('../../fonts/mj dinar.eot');
+    src: url('../../fonts/mj dinar.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/mj dinar.woff') format('woff'),
+         url('../../fonts/mj dinar.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+@font-face {
+    font-family: 'mj matin';
+    src: url('../../fonts/mj matin.eot');
+    src: url('../../fonts/mj matin.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/mj matin.woff') format('woff'),
+         url('../../fonts/mj matin.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+@font-face {
+    font-family: 'font-bmi';
+    src: url('../../fonts/font-bmi.eot');
+    src: url('../../fonts/font-bmi.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/font-bmi.woff') format('woff'),
+         url('../../fonts/font-bmi.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+
+
+
+
+header,
+main,
+footer {
+  padding-right: 240px;
+}
+
+body {
+  backgroud: white;
+  font-family: font-bmi;
+  
+}
+
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-right: 0;
+  }
+}
+
+#credits li,
+#credits li a {
+  color: white;
+}
+
+#credits li a {
+  font-weight: bold;
+}
+
+.footer-copyright .container,
+.footer-copyright .container a {
+  color: #BCC2E2;
+}
+
+.fab-tip {
+	width: 20%;
+    float: right;
+  position: fixed;
+  right: 85px;
+  padding: 0px 0.5rem;
+  text-align: right;
+  background-color: #323232;
+  border-radius: 2px;
+  color: #FFF;
+  width: auto;
+}
+.user-images
+{
+	 width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 11px;
+}

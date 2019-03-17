@@ -1,0 +1,226 @@
+@font-face {
+    font-family: 'bbc nasim';
+    src: url('../../fonts/bbc nasim.eot');
+    src: url('../../fonts/bbc nasim.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/bbc nasim.woff') format('woff'),
+         url('../../fonts/bbc nasim.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+@font-face {
+    font-family: 'mj dinar';
+    src: url('../../fonts/mj dinar.eot');
+    src: url('../../fonts/mj dinar.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/mj dinar.woff') format('woff'),
+         url('../../fonts/mj dinar.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+@font-face {
+    font-family: 'mj matin';
+    src: url('../../fonts/mj matin.eot');
+    src: url('../../fonts/mj matin.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/mj matin.woff') format('woff'),
+         url('../../fonts/mj matin.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+@font-face {
+    font-family: 'font-bmi';
+    src: url('../../fonts/font-bmi.eot');
+    src: url('../../fonts/font-bmi.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/font-bmi.woff') format('woff'),
+         url('../../fonts/font-bmi.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+}
+
+
+header,
+main,
+footer {
+  padding-right: 240px;
+}
+
+body {
+  backgroud: white;
+  font-family: font-bmi;
+  
+}
+
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-right: 0;
+  }
+}
+
+#credits li,
+#credits li a {
+  color: white;
+}
+
+#credits li a {
+  font-weight: bold;
+}
+
+.footer-copyright .container,
+.footer-copyright .container a {
+  color: #BCC2E2;
+}
+
+.fab-tip {
+	width: 20%;
+    float: right;
+  position: fixed;
+  right: 85px;
+  padding: 0px 0.5rem;
+  text-align: right;
+  background-color: #323232;
+  border-radius: 2px;
+  color: #FFF;
+  width: auto;
+}
+.user-images
+{
+	 width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 11px;
+}
+
+
+
+/*dark background to support form theme*/
+body {
+  background: #004567 !important;
+  font-family: font-bmi;
+  @include centerFlex;
+  height: 97vh;
+}
+
+/*sass variables used*/
+/*site container*/
+.wrapper {
+    width: 95%;
+    padding-right: 240px;
+  margin: 0 auto;
+
+}
+
+h1 {
+  text-align: center;
+  padding: 30px 0px 0px 0px;
+  font: 25px Oswald;
+  color: #FFF;
+  text-transform: uppercase;
+  text-shadow: #000 0px 1px 5px;
+  margin: 0px;
+  font-family: font-bmi;
+}
+
+p {
+  font: 13px Open Sans;
+  color: white;
+  text-align: center;
+  text-shadow: #000 0px 1px 5px;
+  margin-bottom: 30px;
+  font-family: font-bmi;
+  direction:rtl;
+}
+
+.form {
+  width: 100%;
+  direction:rtl;
+  text-align:center;
+  color: white;
+}
+
+input[type="text"], input[type="email"] {
+		width: 20%;
+  padding: 2px;
+  border-radius: 5px;
+  box-shadow: inset 4px 6px 10px -4px rgba(0, 0, 0, 0.3), 0 1px 1px -1px rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  outline: none;
+  border: none;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  color: white;
+  text-shadow: #000 0px 1px 5px;
+}
+
+input[type="submit"] {
+	font-family:font-bmi;
+  width: 15%;
+  padding: 15px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#28D2DE), to(#1A878F));
+  background-image: -webkit-linear-gradient(#28D2DE 0%, #1A878F 100%);
+  background-image: -moz-linear-gradient(#28D2DE 0%, #1A878F 100%);
+  background-image: -o-linear-gradient(#28D2DE 0%, #1A878F 100%);
+  background-image: linear-gradient(#28D2DE 0%, #1A878F 100%);
+  font-size: 14px;
+  color: #FFF;
+  text-transform: uppercase;
+  text-shadow: #000 0px 1px 5px;
+  border: 1px solid #000;
+  opacity: 0.7;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.8) !important;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255, 255, 255, 0.2)));
+}
+
+input:focus {
+  box-shadow: inset 4px 6px 10px -4px rgba(0, 0, 0, 0.7), 0 1px 1px -1px rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-transition: 1s ease;
+  -moz-transition: 1s ease;
+  -o-transition: 1s ease;
+  -ms-transition: 1s ease;
+  transition: 1s ease;
+}
+
+input[type="submit"]:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.name-help, .email-help, .familly-help {
+  display: flex;
+  padding: 0px;
+  margin: 0px 0px 15px 0px;
+  text-align:center;
+}
+
+.optimize {
+  position: fixed;
+  right: 3%;
+  top: 0px;
+}
+.submit{
+	font-family:font-bmi;
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

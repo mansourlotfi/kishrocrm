@@ -26,7 +26,7 @@ if($con->query($sql) == TRUE)
 			$branch = $row['branch'];
 			
 			$_SESSION['branch'] = $branch;
-			header("Location: ../dashboard.php");
+			header("Location: ../register-user.php");
 		}
 		else
 		{

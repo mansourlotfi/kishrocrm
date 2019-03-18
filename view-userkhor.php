@@ -65,7 +65,7 @@ if (mysqli_connect_errno())
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-$result = mysqli_query($con,"SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'khoramshahr'");
+$result = mysqli_query($con,"SELECT * FROM `tbl_karamooz` WHERE `branch` = 'khoramshahr'");
 
 echo "<table border='1' >
 <tr>

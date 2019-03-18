@@ -7,12 +7,12 @@ if(isset($_SESSION['username']))
 $today = gdate();
 $thismonth = gmonth();
 
-$sql = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'tehran' AND `record_date` = '$today'";
-$sql2 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'bandarabbas' AND `record_date` = '$today'";
-$sql3 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'khoramshahr' AND `record_date` = '$today'";
-$sql4 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'tehran' AND `record_date` = '$thismonth'";
-$sql5 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'bandarabbas' AND `record_date` = '$thismonth'";
-$sql6 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'khoramshahr' AND `record_date` = '$thismonth'";
+$sql = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'tehran' AND `record_date` = '$today'";
+$sql2 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'bandarabbas' AND `record_date` = '$today'";
+$sql3 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'khoramshahr' AND `record_date` = '$today'";
+$sql4 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'tehran' AND `record_date` = '$thismonth'";
+$sql5 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'bandarabbas' AND `record_date` = '$thismonth'";
+$sql6 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'khoramshahr' AND `record_date` = '$thismonth'";
 
  //this day tehran
 if($con->query($sql) == TRUE) 

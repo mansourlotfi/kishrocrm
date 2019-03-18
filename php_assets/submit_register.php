@@ -34,7 +34,7 @@
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 } 
-$sql = "INSERT INTO `tbl_karamoozteh` (`id`, `name`, `familly`, `father_name`, `cod_meli`, `mobile`, `phone`, `birthday`, `seatime`, `address`, `course_name`, `branch`, `record_date`) VALUES (NULL, '$_POST[name]', '$_POST[familly]', '$_POST[father_name]', '$_POST[cod_meli]', '$_POST[mobile]', '$_POST[phone]', '$_POST[birthday]', '$_POST[seatime]', '$_POST[address]', '$cnames', '$branch', '$j_date_string');";
+$sql = "INSERT INTO `tbl_karamooz` (`id`, `name`, `familly`, `father_name`, `cod_meli`, `mobile`, `phone`, `birthday`, `seatime`, `address`, `course_name`, `branch`, `record_date`) VALUES (NULL, '$_POST[name]', '$_POST[familly]', '$_POST[father_name]', '$_POST[cod_meli]', '$_POST[mobile]', '$_POST[phone]', '$_POST[birthday]', '$_POST[seatime]', '$_POST[address]', '$cnames', '$branch', '$j_date_string');";
 if ($con->query($sql) === TRUE) {
     echo "New record created successfully";
 	header("Location: ../view-user.php");

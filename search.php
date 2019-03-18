@@ -7,12 +7,12 @@ if(isset($_SESSION['username']))
 $today = gdate();
 $thismonth = gmonth();
 
-$sql = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'tehran' AND `record_date` = '$today'";
-$sql2 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'bandarabbas' AND `record_date` = '$today'";
-$sql3 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'khoramshahr' AND `record_date` = '$today'";
-$sql4 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'tehran' AND `record_date` = '$thismonth'";
-$sql5 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'bandarabbas' AND `record_date` = '$thismonth'";
-$sql6 = "SELECT * FROM `tbl_karamoozteh` WHERE `branch` = 'khoramshahr' AND `record_date` = '$thismonth'";
+$sql = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'tehran' AND `record_date` = '$today'";
+$sql2 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'bandarabbas' AND `record_date` = '$today'";
+$sql3 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'khoramshahr' AND `record_date` = '$today'";
+$sql4 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'tehran' AND `record_date` = '$thismonth'";
+$sql5 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'bandarabbas' AND `record_date` = '$thismonth'";
+$sql6 = "SELECT * FROM `tbl_karamooz` WHERE `branch` = 'khoramshahr' AND `record_date` = '$thismonth'";
 
  //this day tehran
 if($con->query($sql) == TRUE) 
@@ -106,9 +106,9 @@ if($con->query($sql) == TRUE)
   <main>
    
    
-   <form class="searchform cf">
-  <input type="text" placeholder="شماره ملی را وارد کنید" >
-  <button type="submit">Search</button>
+   <form class="searchform cf"  method="post" action="">
+  <input type="text" placeholder="شماره ملی را وارد کنید" name="keyword">
+  <button type="submit" name="btnsearch">Search</button>
 </form>
 
 
@@ -118,7 +118,76 @@ if($con->query($sql) == TRUE)
   <input class="addbutton" type="button" onclick="location.href='register-user.php';" value="Add Contact" />
 </span>
 
-   
+   <?php
+   /*
+     if ($con) {
+echo "conected";
+	 }
+ */
+   if (!$con) {
+     die("Connection failed: " . mysqli_connect_error());
+   }
+	if (isset($_post['btnsearch']))
+	{
+		$keyword = $_post['keyword'];
+		$sql= "SELECT * FROM `tbl_karamooz` WHERE `cod_meli` = '$keyword'";
+		$query = mysqli_query($con,$sql);
+	if (mysqli_num_rows($query) < 1)
+	{
+		echo "رکوردی یافت نشد";
+	}
+	else
+	{
+		while ($row = mysqli_fetch_array($query)){
+  $firstName = $row['name'];
+  $familly = $row['familly'];
+  $father_name = $row['father_name'];
+  $cod_meli = $row['cod_meli'];
+  $mobile = $row['mobile'];
+  $phone = $row['phone'];
+  $birthday = $row['birthday'];
+  $seatime = $row['seatime'];
+  $address = $row['address'];
+  $cnames = $row['course_name'];
+  $branch = $row['branch'];
+			
+			
+	echo "<table border='1' >
+<tr >
+<th>نام</th>
+<th>نام خانوادگی</th>
+<th>نام پدر</th>
+<th>کد ملی</th>
+<th>همراه</th>
+<th>تلفن</th>
+<th>تاریخ تولد</th>
+<th>سابقه دریایی</th>
+<th>آدرس</th>
+<th>نام دوره</th>
+<th>delete</th>
+
+</tr>";
+		
+		echo "<tr>";
+echo "<td>" . $row['name'] . "</td>";
+echo "<td>" . $row['familly'] . "</td>";
+echo "<td>" . $row['father_name'] . "</td>";
+echo "<td>" . $row['cod_meli'] . "</td>";
+echo "<td>" . $row['mobile'] . "</td>";
+echo "<td>" . $row['phone'] . "</td>";
+echo "<td>" . $row['birthday'] . "</td>";
+echo "<td>" . $row['seatime'] . "</td>";
+echo "<td>" . $row['address'] . "</td>";
+echo "<td>" . $row['course_name'] . "</td>";
+echo "<td> <a href='php_assets/delete_user.php?act=".$row['id']."'> delete </a> </td>";
+
+
+echo "</tr>";
+}
+echo "</table>";
+		}
+	}
+?>
    
    
    

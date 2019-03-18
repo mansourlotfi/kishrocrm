@@ -70,13 +70,86 @@ include('php_assets/function.php');
   </header>
 
   <main>
-
-<div class="wrapper">
- <div> <h1>ثبت کارآموز جدید</h1>
-  </div>
   <br>
   <br>
   
+  <div class="search-div"> 
+<form method="POST" action="?act=search">
+  <input type="text" placeholder="شماره ملی را وارد کنید" name="keyword">
+  <input type="submit" value="جستجو" />
+</form>
+</div>
+
+
+
+
+
+   <?php
+ 
+ if(isset($_GET['act']))
+ {
+	 $action = $_GET['act'];
+	 if($action == "search")
+	 {
+		$keyword = $_POST['keyword'];
+		$sql= "SELECT * FROM `tbl_karamooz` WHERE `cod_meli` = '$keyword'";
+		$query = mysqli_query($con,$sql);
+		if (mysqli_num_rows($query) < 1)
+			{
+				echo "<script> alert('رکوردی یافت نشد'); </script>";
+			}
+			else
+				{
+					echo "<div class='centertext'>";
+					while ($row = mysqli_fetch_array($query))
+					{
+						echo "<table border='1' >
+						<tr >
+						<th>نام</th>
+						<th>نام خانوادگی</th>
+						<th>نام پدر</th>
+						<th>کد ملی</th>
+						<th>همراه</th>
+						<th>تلفن</th>
+						<th>تاریخ تولد</th>
+						<th>سابقه دریایی</th>
+						<th>آدرس</th>
+						<th>نام دوره</th>
+						<th>delete</th>
+						</tr>";
+								
+						echo "<tr>";
+						echo "<td>" . $row['name'] . "</td>";
+						echo "<td>" . $row['familly'] . "</td>";
+						echo "<td>" . $row['father_name'] . "</td>";
+						echo "<td>" . $row['cod_meli'] . "</td>";
+						echo "<td>" . $row['mobile'] . "</td>";
+						echo "<td>" . $row['phone'] . "</td>";
+						echo "<td>" . $row['birthday'] . "</td>";
+						echo "<td>" . $row['seatime'] . "</td>";
+						echo "<td>" . $row['address'] . "</td>";
+						echo "<td>" . $row['course_name'] . "</td>";
+						echo "<td> <a href='php_assets/delete_user.php?act=".$row['id']."'> delete </a> </td>";
+						echo "</tr>";
+					}
+					echo "</table>";
+					echo "</div>";
+					
+
+				}
+ }
+ }
+
+
+?>
+<br> 
+
+<div>
+ <div> <h1>ثبت کارآموز جدید</h1>
+  </div>
+
+  
+<div>
   <form class="form" method="post" action="php_assets/submit_register.php">
     <input type="text" name="name" class="name" placeholder="نام">
    	<input type="text" name="familly" class="familly" placeholder="نام خانوادگی"><br>
@@ -86,8 +159,16 @@ include('php_assets/function.php');
 	<input type="text" name="phone" class="phone" placeholder="تلفن ثابت"><br>
 	<input type="text" name="birthday" class="birthdate" placeholder="تاریخ تولد">
 	<select name="seatime" class="seatime" placeholder="سابقه دریایی">
-	<option value="0">سابقه دریایی ندارد</option>
-	<option value="1">سابقه دریایی دارد</option>
+	<option value="0" selected disabled >سابقه دریایی </option>
+	<option value="3">3 ماه</option>
+	<option value="6">6 ماه</option>
+	<option value="12">12 ماه</option>
+	<option value="18">18 ماه</option>
+	<option value="24">24 ماه</option>
+	<option value="36">36 ماه</option>
+	<option value="36">ندارد</option>
+	
+
 	</select>
 <br>
 	<input type="text" name="address" class="adress" placeholder="آدرس" style=width:550px;height:50px;><br>
@@ -111,10 +192,13 @@ include('php_assets/function.php');
 	</select>
 <br>
 <br>
+<div>
     <input type="submit" class="submit" value="ثبت کار آموز" >
+</div>
   </form>
-      </div>
-    </div>
+</div>
+      
+</div>
 
 
 <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">

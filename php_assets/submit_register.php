@@ -53,18 +53,6 @@ $con->close();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function gregorian_to_jalali($gy,$gm,$gd,$mod=''){
  $g_d_m=array(0,31,59,90,120,151,181,212,243,273,304,334);
  if($gy>1600){

@@ -212,7 +212,9 @@ input[type="submit"]:hover {
 }
 
 
-
+.search-div {
+    text-align: center;
+}
 
 
 

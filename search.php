@@ -105,88 +105,74 @@ if($con->query($sql) == TRUE)
 
   <main>
    
-   
-   <form class="searchform cf"  method="post" action="">
+<div class="search-div"> 
+<form method="POST" action="?act=search">
   <input type="text" placeholder="شماره ملی را وارد کنید" name="keyword">
-  <button type="submit" name="btnsearch">Search</button>
+  <input type="submit" value="جستجو" />
 </form>
-
-
-
 <span>
   <button class="addbutton" type="submit"> <b> </b> </button>
   <input class="addbutton" type="button" onclick="location.href='register-user.php';" value="Add Contact" />
 </span>
+</div>
+
+
+
+
 
    <?php
-   /*
-     if ($con) {
-echo "conected";
-	 }
- */
-   if (!$con) {
-     die("Connection failed: " . mysqli_connect_error());
-   }
-	if (isset($_post['btnsearch']))
-	{
-		$keyword = $_post['keyword'];
+ 
+ if(isset($_GET['act']))
+ {
+	 $action = $_GET['act'];
+	 if($action == "search")
+	 {
+		$keyword = $_POST['keyword'];
 		$sql= "SELECT * FROM `tbl_karamooz` WHERE `cod_meli` = '$keyword'";
 		$query = mysqli_query($con,$sql);
-	if (mysqli_num_rows($query) < 1)
-	{
-		echo "رکوردی یافت نشد";
-	}
-	else
-	{
-		while ($row = mysqli_fetch_array($query)){
-  $firstName = $row['name'];
-  $familly = $row['familly'];
-  $father_name = $row['father_name'];
-  $cod_meli = $row['cod_meli'];
-  $mobile = $row['mobile'];
-  $phone = $row['phone'];
-  $birthday = $row['birthday'];
-  $seatime = $row['seatime'];
-  $address = $row['address'];
-  $cnames = $row['course_name'];
-  $branch = $row['branch'];
-			
-			
-	echo "<table border='1' >
-<tr >
-<th>نام</th>
-<th>نام خانوادگی</th>
-<th>نام پدر</th>
-<th>کد ملی</th>
-<th>همراه</th>
-<th>تلفن</th>
-<th>تاریخ تولد</th>
-<th>سابقه دریایی</th>
-<th>آدرس</th>
-<th>نام دوره</th>
-<th>delete</th>
+		if (mysqli_num_rows($query) < 1)
+			{
+				echo "<script> alert('رکوردی یافت نشد'); </script>";
+			}
+			else
+				{
+					while ($row = mysqli_fetch_array($query))
+					{
+						echo "<table border='1' >
+						<tr >
+						<th>نام</th>
+						<th>نام خانوادگی</th>
+						<th>نام پدر</th>
+						<th>کد ملی</th>
+						<th>همراه</th>
+						<th>تلفن</th>
+						<th>تاریخ تولد</th>
+						<th>سابقه دریایی</th>
+						<th>آدرس</th>
+						<th>نام دوره</th>
+						<th>delete</th>
+						</tr>";
+								
+								echo "<tr>";
+						echo "<td>" . $row['name'] . "</td>";
+						echo "<td>" . $row['familly'] . "</td>";
+						echo "<td>" . $row['father_name'] . "</td>";
+						echo "<td>" . $row['cod_meli'] . "</td>";
+						echo "<td>" . $row['mobile'] . "</td>";
+						echo "<td>" . $row['phone'] . "</td>";
+						echo "<td>" . $row['birthday'] . "</td>";
+						echo "<td>" . $row['seatime'] . "</td>";
+						echo "<td>" . $row['address'] . "</td>";
+						echo "<td>" . $row['course_name'] . "</td>";
+						echo "<td> <a href='php_assets/delete_user.php?act=".$row['id']."'> delete </a> </td>";
+						echo "</tr>";
+					}
+					echo "</table>";
 
-</tr>";
-		
-		echo "<tr>";
-echo "<td>" . $row['name'] . "</td>";
-echo "<td>" . $row['familly'] . "</td>";
-echo "<td>" . $row['father_name'] . "</td>";
-echo "<td>" . $row['cod_meli'] . "</td>";
-echo "<td>" . $row['mobile'] . "</td>";
-echo "<td>" . $row['phone'] . "</td>";
-echo "<td>" . $row['birthday'] . "</td>";
-echo "<td>" . $row['seatime'] . "</td>";
-echo "<td>" . $row['address'] . "</td>";
-echo "<td>" . $row['course_name'] . "</td>";
-echo "<td> <a href='php_assets/delete_user.php?act=".$row['id']."'> delete </a> </td>";
+				}
+ }
+ }			
 
-
-echo "</tr>";
-}
-echo "</table>";
-		}
-	}
 ?>
    
    

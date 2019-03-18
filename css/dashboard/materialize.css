@@ -2050,8 +2050,10 @@ table,th,td{
     border:none
 }
 table{
-    width:100%;
-    display:table
+    width: 95%;
+    display: table;
+    direction: rtl;
+	float: right;
 }
 table.bordered>thead>tr,table.bordered>tbody>tr{
     border-bottom:1px solid #d0d0d0
@@ -4196,7 +4198,6 @@ input:not([type]),input[type=text],input[type=password],input[type=email],input[
     border-radius:0;
     outline:none;
     height:3rem;
-    width:100%;
     font-size:1rem;
     margin:0 0 15px 0;
     padding:0;
@@ -6151,6 +6152,7 @@ button.picker__today:focus,button.picker__clear:focus,button.picker__close:focus
 2.0 - SEARCH FORM
 --------------------------------------------------------------*/
 .searchform {
+	/*
   background:#f4f4f4;
   background:rgba(244,244,244,.79);
   border: 1px solid #d3d3d3;
@@ -6165,7 +6167,7 @@ button.picker__today:focus,button.picker__clear:focus,button.picker__close:focus
   -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
   border-radius: 10px;
   -moz-border-radius: 10px;
-  -webkit-border-radius: 10px
+  -webkit-border-radius: 10px*/
 }
 
 .searchform input, .searchform button {
@@ -6259,9 +6261,9 @@ button.picker__today:focus,button.picker__clear:focus,button.picker__close:focus
   border-radius: 9px;
   -moz-border-radius: 9px;
   -webkit-border-radius: 9px;
-      margin: 75px;
     position: absolute;
-    right: 650px;
+    right: 800px;
+	top: 75px;
 }
 	.addbutton:hover {
 		opacity:.9;
@@ -6271,7 +6273,13 @@ button.picker__today:focus,button.picker__clear:focus,button.picker__close:focus
 	.addbutton:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
-  transform: translateY(4px);
+	transform: translateY(4px);}
+
+.search-div
+{
+	height: 100px;
+	text-align: center;
+}
 	
 	
 
